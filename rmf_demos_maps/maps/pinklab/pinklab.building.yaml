@@ -16,10 +16,45 @@ graphs:
   {}
 levels:
   L1:
+    doors:
+      - [3, 4, {motion_axis: [1, start], motion_degrees: [3, 90], motion_direction: [2, 1], name: [1, door_1], plugin: [1, normal], right_left_ratio: [3, 0], type: [1, hinged]}]
+      - [6, 5, {motion_axis: [1, start], motion_degrees: [3, 90], motion_direction: [2, -1], name: [1, door_2], plugin: [1, normal], right_left_ratio: [3, 1], type: [1, hinged]}]
     drawing:
       filename: pinklab.png
     elevation: 0
+    floors:
+      - parameters: {ceiling_scale: [3, 1], ceiling_texture: [1, blue_linoleum], indoor: [2, 0], texture_name: [1, blue_linoleum], texture_rotation: [3, 0], texture_scale: [3, 1]}
+        vertices: [2, 8, 9, 4]
+    lanes:
+      - [10, 11, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [11, 12, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [12, 13, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
     layers:
       {}
+    measurements:
+      - [0, 1, {distance: [3, 8.8300000000000001]}]
+    vertices:
+      - [129.05000000000001, 13.882, 0, ""]
+      - [896.43700000000001, 14.265000000000001, 0, ""]
+      - [130.54400000000001, 125.452, 0, ""]
+      - [129.50800000000001, 356.56799999999998, 0, ""]
+      - [129.08099999999999, 433.10399999999998, 0, ""]
+      - [895.29200000000003, 431.39299999999997, 0, ""]
+      - [895.29200000000003, 345.87900000000002, 0, ""]
+      - [895.29200000000003, 124.824, 0, ""]
+      - [1358.3530000000001, 122.258, 0, ""]
+      - [1358.7809999999999, 433.10399999999998, 0, ""]
+      - [286.76900000000001, 316.43799999999999, 0, ""]
+      - [777.60000000000002, 317.505, 0, ""]
+      - [775.46600000000001, 169.18799999999999, 0, ""]
+      - [287.83600000000001, 163.85300000000001, 0, ""]
+    walls:
+      - [2, 7, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
+      - [7, 8, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
+      - [8, 9, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
+      - [9, 5, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
+      - [5, 4, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
+      - [2, 3, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
+      - [7, 6, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
 lifts: {}
 name: pinklab
