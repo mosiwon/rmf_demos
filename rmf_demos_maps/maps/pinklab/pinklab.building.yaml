@@ -1,7 +1,7 @@
 coordinate_system: reference_image
 crowd_sim:
   agent_groups:
-    - {agents_name: [], agents_number: 0, group_id: 0, profile_selector: external_agent, state_selector: external_static, x: 0, y: 0}
+    - {agents_name: [cleanerBotA_1], agents_number: 1, group_id: 0, profile_selector: external_agent, state_selector: external_static, x: 0, y: 0}
   agent_profiles:
     - {ORCA_tau: 1, ORCA_tauObst: 0.40000000000000002, class: 1, max_accel: 0, max_angle_vel: 0, max_neighbors: 10, max_speed: 0, name: external_agent, neighbor_dist: 5, obstacle_set: 1, pref_speed: 0, r: 0.25}
   enable: 0
@@ -26,13 +26,15 @@ levels:
       - parameters: {ceiling_scale: [3, 1], ceiling_texture: [1, blue_linoleum], indoor: [2, 0], texture_name: [1, blue_linoleum], texture_rotation: [3, 0], texture_scale: [3, 1]}
         vertices: [2, 8, 9, 4]
     lanes:
-      - [10, 11, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
-      - [11, 12, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
-      - [12, 13, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [11, 12, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [12, 13, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [10, 14, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [14, 11, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [14, 15, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
     layers:
       {}
     measurements:
-      - [0, 1, {distance: [3, 8.8300000000000001]}]
+      - [0, 1, {distance: [3, 17.629999999999999]}]
     vertices:
       - [129.05000000000001, 13.882, 0, ""]
       - [896.43700000000001, 14.265000000000001, 0, ""]
@@ -44,10 +46,12 @@ levels:
       - [895.29200000000003, 124.824, 0, ""]
       - [1358.3530000000001, 122.258, 0, ""]
       - [1358.7809999999999, 433.10399999999998, 0, ""]
-      - [286.76900000000001, 316.43799999999999, 0, ""]
-      - [777.60000000000002, 317.505, 0, ""]
-      - [775.46600000000001, 169.18799999999999, 0, ""]
-      - [287.83600000000001, 163.85300000000001, 0, ""]
+      - [178.71600000000001, 167.541, 0, cleanerbot_charger1, {is_charger: [4, true], is_holding_point: [4, true], is_parking_spot: [4, true], spawn_robot_name: [1, cleanerBotA_1], spawn_robot_type: [1, CleanerBotA]}]
+      - [712.30200000000002, 167.45099999999999, 0, ""]
+      - [712.30200000000002, 391.87, 0, ""]
+      - [178.017, 393.74799999999999, 0, ""]
+      - [342.798, 168.01300000000001, 0, ""]
+      - [342.798, 254.16499999999999, 0, clean_lobby, {is_cleaning_zone: [4, true]}]
     walls:
       - [2, 7, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
       - [7, 8, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
