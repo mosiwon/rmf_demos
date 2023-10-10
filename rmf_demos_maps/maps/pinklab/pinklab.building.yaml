@@ -1,7 +1,7 @@
 coordinate_system: reference_image
 crowd_sim:
   agent_groups:
-    - {agents_name: [cleanerBotA_1], agents_number: 1, group_id: 0, profile_selector: external_agent, state_selector: external_static, x: 0, y: 0}
+    - {agents_name: [cleanerBotA_1, tinyBot_1], agents_number: 2, group_id: 0, profile_selector: external_agent, state_selector: external_static, x: 0, y: 0}
   agent_profiles:
     - {ORCA_tau: 1, ORCA_tauObst: 0.40000000000000002, class: 1, max_accel: 0, max_angle_vel: 0, max_neighbors: 10, max_speed: 0, name: external_agent, neighbor_dist: 5, obstacle_set: 1, pref_speed: 0, r: 0.25}
   enable: 0
@@ -32,6 +32,10 @@ levels:
       - [14, 11, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
       - [14, 16, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
       - [16, 15, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [21, 11, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [11, 12, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [12, 22, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [22, 23, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 1], orientation: [1, ""], speed_limit: [3, 0]}]
     layers:
       {}
     measurements:
@@ -53,11 +57,14 @@ levels:
       - [178.017, 393.74799999999999, 0, ""]
       - [342.798, 168.01300000000001, 0, ""]
       - [342.798, 254.16499999999999, 0, clean_lobby, {dock_name: [1, clean_lobby], is_cleaning_zone: [4, true]}]
-      - [343.29000000000002, 221.059, 0, ""]
+      - [342.798, 221.059, 0, ""]
       - [420.73200000000003, 219.81999999999999, 0, ""]
       - [612.16800000000001, 219.81999999999999, 0, ""]
       - [615.26599999999996, 343.41699999999997, 0, ""]
       - [417.94400000000002, 334.12400000000002, 0, ""]
+      - [843.18799999999999, 167.45099999999999, 0, tinybot_charger, {is_charger: [4, true], is_holding_point: [4, true], is_parking_spot: [4, true], spawn_robot_name: [1, tinyBot_1], spawn_robot_type: [1, TinyRobot]}]
+      - [1093.644, 391.87, 0, ""]
+      - [1093.644, 162.577, 0, pinkwinks_room, {is_holding_point: [4, true]}]
     walls:
       - [2, 7, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
       - [7, 8, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
