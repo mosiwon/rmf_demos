@@ -10,6 +10,8 @@
         <arg name="viz_config_file" value="$(find-pkg-share rmf_demos)/include/pinklab/pinklab.rviz" />
         <arg name="config_file"
             value="$(find-pkg-share rmf_demos_maps)/pinklab/pinklab.building.yaml" />
+        <arg name="dashboard_config_file"
+            value="$(find-pkg-share rmf_demos_dashboard_resources)/pinklab/dashboard_config.json" />
     </include>
 
     <group>
@@ -34,11 +36,13 @@
 
     <group>
         <include file="$(find-pkg-share rmf_demos_fleet_adapter)/launch/fleet_adapter.launch.xml">
-          <arg name="use_sim_time" value="$(var use_sim_time)"/>
-          <arg name="nav_graph_file" value="$(find-pkg-share rmf_demos_maps)/maps/pinklab/nav_graphs/2.yaml" />
-          <arg name="config_file" value="$(find-pkg-share rmf_demos)/config/pinklab/deliveryRobot_config.yaml"/>
+            <arg name="use_sim_time" value="$(var use_sim_time)" />
+            <arg name="nav_graph_file"
+                value="$(find-pkg-share rmf_demos_maps)/maps/pinklab/nav_graphs/2.yaml" />
+            <arg name="config_file"
+                value="$(find-pkg-share rmf_demos)/config/pinklab/deliveryRobot_config.yaml" />
         </include>
-      </group>
+    </group>
 
     <group>
         <let name="docking_config_file"

@@ -32,5 +32,6 @@ install(DIRECTORY
   office
   hotel
   clinic
+  pinklab
   DESTINATION share/${PROJECT_NAME}
 )
