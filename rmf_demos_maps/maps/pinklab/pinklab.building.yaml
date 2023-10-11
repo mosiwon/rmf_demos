@@ -17,11 +17,13 @@ graphs:
 levels:
   L1:
     doors:
-      - [3, 4, {motion_axis: [1, start], motion_degrees: [3, 90], motion_direction: [2, 1], name: [1, door_1], plugin: [1, normal], right_left_ratio: [3, 0], type: [1, hinged]}]
       - [6, 5, {motion_axis: [1, start], motion_degrees: [3, 90], motion_direction: [2, -1], name: [1, door_2], plugin: [1, normal], right_left_ratio: [3, 1], type: [1, hinged]}]
     drawing:
       filename: pinklab.png
     elevation: 0
+    fiducials:
+      - [128.511, 357.33699999999999, F1]
+      - [128.21299999999999, 434.73700000000002, F2]
     floors:
       - parameters: {ceiling_scale: [3, 1], ceiling_texture: [1, blue_linoleum], indoor: [2, 0], texture_name: [1, blue_linoleum], texture_rotation: [3, 0], texture_scale: [3, 1]}
         vertices: [2, 8, 9, 4]
@@ -40,6 +42,12 @@ levels:
       {}
     measurements:
       - [0, 1, {distance: [3, 17.629999999999999]}]
+    models:
+      - {dispensable: false, model_name: OpenRobotics/Table, name: OpenRobotics/Table, static: true, x: 873.48000000000002, y: 226.81100000000001, yaw: 1.5708, z: 0}
+      - {dispensable: false, model_name: OpenRobotics/Table, name: OpenRobotics/Table, static: true, x: 873.48000000000002, y: 291.303, yaw: 1.5708, z: 0}
+      - {dispensable: false, model_name: OpenRobotics/Table, name: OpenRobotics/Table, static: true, x: 1156.086, y: 145.94900000000001, yaw: -3.1295000000000002, z: 0}
+      - {dispensable: false, model_name: OpenRobotics/Table, name: OpenRobotics/Table, static: true, x: 153.44900000000001, y: 242.745, yaw: 1.5708, z: 0}
+      - {dispensable: false, model_name: OpenRobotics/TeleportIngestor, name: coke_ingestor, static: true, x: 1135.0550000000001, y: 154.34700000000001, yaw: 1.5708, z: 1}
     vertices:
       - [129.05000000000001, 13.882, 0, ""]
       - [896.43700000000001, 14.265000000000001, 0, ""]
@@ -65,6 +73,7 @@ levels:
       - [843.18799999999999, 167.45099999999999, 0, tinybot_charger, {is_charger: [4, true], is_holding_point: [4, true], is_parking_spot: [4, true], spawn_robot_name: [1, tinyBot_1], spawn_robot_type: [1, TinyRobot]}]
       - [1093.644, 391.87, 0, ""]
       - [1093.644, 162.577, 0, pinkwinks_room, {is_holding_point: [4, true]}]
+      - [78.784000000000006, 396.05500000000001, 0, ""]
     walls:
       - [2, 7, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
       - [7, 8, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
@@ -73,5 +82,55 @@ levels:
       - [5, 4, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
       - [2, 3, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
       - [7, 6, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
-lifts: {}
+  L2:
+    drawing:
+      filename: pinklab_L2.png
+    elevation: 10
+    fiducials:
+      - [186.75200000000001, 575.12699999999995, F1]
+      - [185.709, 694.47400000000005, F2]
+    floors:
+      - parameters: {ceiling_scale: [3, 1], ceiling_texture: [1, blue_linoleum], indoor: [2, 0], texture_name: [1, blue_linoleum], texture_rotation: [3, 0], texture_scale: [3, 1]}
+        vertices: [3, 4, 2, 1]
+    layers:
+      {}
+    models:
+      - {dispensable: false, model_name: OpenRobotics/Table, name: OpenRobotics/Table, static: true, x: 474.488, y: 636.52300000000002, yaw: 1.5708, z: 0}
+      - {dispensable: false, model_name: OpenRobotics/TeleportDispenser, name: coke_dispenser, static: true, x: 463.017, y: 604.87099999999998, yaw: 1.5708, z: 1}
+      - {dispensable: false, model_name: OpenRobotics/TeleportDispenser, name: OpenRobotics/TeleportDispenser, static: true, x: 456.416, y: 618.86500000000001, yaw: 1.5708, z: 1}
+      - {dispensable: false, model_name: OpenRobotics/Coke, name: OpenRobotics/Coke, static: true, x: 463.22300000000001, y: 605.79399999999998, yaw: 1.5708, z: 1}
+      - {dispensable: false, model_name: OpenRobotics/Coke, name: OpenRobotics/Coke, static: true, x: 455.89499999999998, y: 618.76800000000003, yaw: 1.5708, z: 1}
+    vertices:
+      - [186.88999999999999, 574.15599999999995, 0, ""]
+      - [185.91300000000001, 694.02599999999995, 0, ""]
+      - [507.43400000000003, 693.75099999999998, 0, ""]
+      - [186.09100000000001, 132.36500000000001, 0, ""]
+      - [506.90600000000001, 132.74700000000001, 0, ""]
+    walls:
+      - [0, 3, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
+      - [3, 4, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
+      - [4, 2, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
+      - [1, 2, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
+lifts:
+  lift_1:
+    depth: 2.1000000000000001
+    doors:
+      lift_door1:
+        door_type: 2
+        motion_axis_orientation: 1.5707
+        width: 1
+        x: 1
+        y: 0
+    highest_floor: L2
+    initial_floor_name: L1
+    level_doors:
+      L1: [lift_door1]
+      L2: [lift_door1]
+    lowest_floor: L1
+    plugins: true
+    reference_floor_name: L1
+    width: 2.1000000000000001
+    x: 78.784000000000006
+    y: 396.05500000000001
+    yaw: 0
 name: pinklab
