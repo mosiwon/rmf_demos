@@ -18,7 +18,8 @@
         "pinkwinks_room",
         "deliverybot_charger",
         "tinybot_charger",
-        "cleanerbot_charger1"
+        "cleanerbot_charger1",
+        "turtlebot4_standard_charger"
       ]
     },
     "Clean": {
