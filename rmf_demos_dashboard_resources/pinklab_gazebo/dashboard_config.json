@@ -1,5 +1,5 @@
 { 
-  "world_name" : "PinkLAB",
+  "world_name" : "PinkLAB_Gazebo",
   "valid_task" : ["Loop", "Clean","Delivery"],
   "task": {
     "Delivery": {

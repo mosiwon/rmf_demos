@@ -32,6 +32,6 @@ install(DIRECTORY
   office
   hotel
   clinic
-  pinklab
+  pinklab_gazebo
   DESTINATION share/${PROJECT_NAME}
 )

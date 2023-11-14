@@ -19,7 +19,7 @@ levels:
     doors:
       - [6, 5, {motion_axis: [1, start], motion_degrees: [3, 90], motion_direction: [2, -1], name: [1, door_2], plugin: [1, normal], right_left_ratio: [3, 1], type: [1, hinged]}]
     drawing:
-      filename: pinklab.png
+      filename: pinklab_gazebo.png
     elevation: 0
     fiducials:
       - [128.511, 357.33699999999999, F1]
@@ -97,7 +97,7 @@ levels:
       - [7, 6, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
   L2:
     drawing:
-      filename: pinklab_L2.png
+      filename: pinklab_L2_gazebo.png
     elevation: 10
     fiducials:
       - [186.75200000000001, 575.12699999999995, F1]
