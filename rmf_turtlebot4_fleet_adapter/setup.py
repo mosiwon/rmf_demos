@@ -15,6 +15,8 @@ setup(
         ('share/' + package_name,['config.yaml']),
         (os.path.join('share', package_name, 'launch'),
             glob('launch/*.launch.xml')),
+        (os.path.join('share', package_name, 'launch'),
+            glob('launch/*.launch.py')),
 
     ],
     install_requires=['setuptools'],

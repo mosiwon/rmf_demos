@@ -2,7 +2,7 @@
 # RMF Fleet parameters
 
 rmf_fleet:
-  name: "tinyRobot"
+  name: "turtlebot4_lite"
   limits:
     linear: [0.5, 0.75] # velocity, acceleration
     angular: [0.6, 2.0] # velocity, acceleration
@@ -29,23 +29,25 @@ rmf_fleet:
   task_capabilities: # Specify the types of RMF Tasks that robots in this fleet are capable of performing
     loop: True
     delivery: True
-  actions: ["some_action_here"]
+  actions: ["teleop"]
   finishing_request: "park" # [park, charge, nothing]
   responsive_wait: True # Should responsive wait be on/off for the whole fleet by default? False if not specified.
+  # turtlebot4_standard CONFIG =================================================================
   robots:
-    tinyRobot1:
-        charger: "tinyRobot1_charger"
+    turtlebot4_lite_1:
+        charger: "start"
         responsive_wait: False # Should responsive wait be on/off for this specific robot? Overrides the fleet-wide setting.
-    tinyRobot2:
-        charger: "tinyRobot2_charger"
-        # No mention of responsive_wait means the fleet-wide setting will be used
 
-  robot_state_update_frequency: 10.0 # Hz
 
 fleet_manager:
   prefix: "http://127.0.0.1:8080"
+  ip: "127.0.0.1"
+  port: 22014
   user: "some_user"
-  password: "some_password"
+  password: "some_password"   
+
+
+
 
 
 # TRANSFORM CONFIG =============================================================
@@ -54,11 +56,11 @@ fleet_manager:
 # Optional
 reference_coordinates:
   L1:
-    rmf: [[20.33, -3.156],
-          [8.908, -2.57],
-          [13.02, -3.601],
-          [21.93, -4.124]]
-    robot: [[59, 399],
-          [57, 172],
-          [68, 251],
-          [75, 429]]
+    rmf: [[0.0, 0.0 ],
+        [1.0, 1.0],
+        [2.0, 2.0],
+        [3.0, 3.0]]
+    robot: [[0.0, 0.0 ],
+          [1.0, 1.0],
+          [2.0, 2.0],
+          [3.0, 3.0]]

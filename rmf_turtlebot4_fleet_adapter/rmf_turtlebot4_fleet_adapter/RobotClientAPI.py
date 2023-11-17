@@ -20,6 +20,13 @@
     will need to make http request calls to the appropriate endpoints within
     these functions.
 '''
+import rclpy
+from rclpy.node import Node
+from nav_msgs.msg import Odometry
+from sensor_msgs.msg import BatteryState
+from geometry_msgs.msg import PoseStamped, Twist
+import math
+import requests
 
 
 class RobotAPI:
@@ -27,18 +34,58 @@ class RobotAPI:
     # http requests. Users should modify the constructor as per the
     # requirements of their robot's API
     def __init__(self, config_yaml):
-        self.prefix = config_yaml['prefix']
+        
+        self.ip = config_yaml['ip']
+        self.port = str(config_yaml['port'])
         self.user = config_yaml['user']
         self.password = config_yaml['password']
+        self.prefix = f'http://{self.ip}:{self.port}'
         self.timeout = 5.0
         self.debug = False
+        self.odom_received = False
+        self.battery_received = False
+        self.current_pose = None
+        self.current_battery = None
+        # ROS 2 노드 초기화
+        self.node = rclpy.create_node('robot_api_node')
+        print("RobotAPI: ROS 2 노드 초기화 완료")
+        # 필요한 토픽, 서비스, 액션 구독 및 생성
+
 
     def check_connection(self):
-        ''' Return True if connection to the robot API server is successful '''
-        # ------------------------ #
-        # IMPLEMENT YOUR CODE HERE #
-        # ------------------------ #
-        return True
+        print("Checking connection in RobotclientAPI...")
+        ''' 연결 상태 확인 '''
+        try:
+            rclpy.spin_once(self.node, timeout_sec=5)  # 5초 동안 메시지 수신 대기
+            return self.odom_received and self.battery_received
+        except Exception as e:
+            print(f"Connection check failed: {e}")
+            return False
+
+    def pose_callback(self, msg):
+        print("pose_callback: 수신된 AMCL 데이터")
+        self.current_pose = msg
+
+    def battery_callback(self, msg):
+        print("battery_callback: 수신된 BatteryState 데이터")
+        self.current_battery = msg
+ 
+    def position(self, robot_name: str):
+        ''' 현재 로봇의 위치를 반환 '''
+        if self.current_pose:
+           
+            return None
+        return None
+
+    def battery_soc(self, robot_name: str):
+        ''' 현재 로봇의 배터리 잔량을 반환 '''
+        print("battery_soc")
+        if self.current_battery:
+            
+            return self.current_battery.percentage
+        return None
+
+
 
     def navigate(
         self,
@@ -80,29 +127,13 @@ class RobotAPI:
         # ------------------------ #
         return False
 
-    def position(self, robot_name: str):
-        ''' Return [x, y, theta] expressed in the robot's coordinate frame or
-        None if any errors are encountered '''
-        # ------------------------ #
-        # IMPLEMENT YOUR CODE HERE #
-        # ------------------------ #
-        return None
-
-    def battery_soc(self, robot_name: str):
-        ''' Return the state of charge of the robot as a value between 0.0
-        and 1.0. Else return None if any errors are encountered. '''
-        # ------------------------ #
-        # IMPLEMENT YOUR CODE HERE #
-        # ------------------------ #
-        return None
-
     def map(self, robot_name: str):
         ''' Return the name of the map that the robot is currently on or
         None if any errors are encountered. '''
         # ------------------------ #
         # IMPLEMENT YOUR CODE HERE #
         # ------------------------ #
-        return None
+        return 'L1'
 
     def is_command_completed(self):
         ''' Return True if the robot has completed its last command, else
@@ -115,16 +146,23 @@ class RobotAPI:
     def get_data(self, robot_name: str):
         ''' Returns a RobotUpdateData for one robot if a name is given. Otherwise
         return a list of RobotUpdateData for all robots. '''
-        map = self.map(robot_name)
-        position = self.position(robot_name)
-        battery_soc = self.battery_soc(robot_name)
-        if not (map is None or position is None or battery_soc is None):
-            return RobotUpdateData(robot_name, map, position, battery_soc)
+        try:
+            url = self.prefix + f'/status/{robot_name}'
+            response = requests.get(url, timeout=self.timeout)
+            if response.status_code == 200:
+                data = response.json()['data']
+                map = data.get('map_name')
+                position = data.get('position')
+                battery_soc = data.get('battery') # 백분율을 소수로 변환
+                return None #RobotUpdateData(robot_name, map, position, battery_soc)
+        except Exception as e:
+            print(f"Error while getting robot data: {e}")
         return None
 
 
 class RobotUpdateData:
     ''' Update data for a single robot. '''
+
     def __init__(self,
                  robot_name: str,
                  map: str,

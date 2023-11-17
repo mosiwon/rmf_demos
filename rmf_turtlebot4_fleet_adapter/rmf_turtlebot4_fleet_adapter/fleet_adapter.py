@@ -138,11 +138,13 @@ def main(argv=sys.argv):
         asyncio.set_event_loop(asyncio.new_event_loop())
         while rclpy.ok():
             now = node.get_clock().now()
+            
+            
 
             # Update all the robots in parallel using a thread pool
             update_jobs = []
-            for robot in robots.keys():
-                update_jobs.append(update_robot(robot))
+            for robot_name, robot_adapter in robots.items():
+                update_jobs.append(update_robot(robot_adapter))
 
             asyncio.get_event_loop().run_until_complete(
                 asyncio.wait(update_jobs)
@@ -250,8 +252,10 @@ def parallel(f):
 
 
 @parallel
-def update_robot(robot: RobotAdapter):
-    data = robot.api.get_data(robot.name)
+def update_robot(robot_adapter):
+    # 여기서 'robot_adapter'는 RobotAdapter 객체의 인스턴스여야 합니다.
+    data = robot_adapter.api.get_data(robot_adapter.name)
+    # print(f"update_robot: {robot_adapter.name}, {data}")
     if data is None:
         return
 
@@ -261,16 +265,16 @@ def update_robot(robot: RobotAdapter):
         data.battery_soc
     )
 
-    if robot.update_handle is None:
-        robot.update_handle = robot.fleet_handle.add_robot(
-            robot.name,
+    if robot_adapter.update_handle is None:
+        robot_adapter.update_handle = robot_adapter.fleet_handle.add_robot(
+            robot_adapter.name,
             state,
-            robot.configuration,
-            robot.make_callbacks()
+            robot_adapter.configuration,
+            robot_adapter.make_callbacks()
         )
         return
 
-    robot.update(state)
+    robot_adapter.update(state)
 
 
 if __name__ == '__main__':

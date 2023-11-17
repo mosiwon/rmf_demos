@@ -13,12 +13,12 @@
     </include>
 
     <!-- Turtlebot Fleet adapter-->
-    <include file="$(find-pkg-share rmf_demos_fleet_adapter)/launch/fleet_adapter.launch.xml">
+    <include file="$(find-pkg-share rmf_turtlebot4_fleet_adapter)/launch/fleet_turtlebot_adapter.launch.xml">
         <arg name="use_sim_time" value="$(var use_sim_time)" />
         <arg name="nav_graph_file"
             value="$(find-pkg-share rmf_demos_maps)/maps/pinklab/nav_graphs/0.yaml" />
         <arg name="config_file"
-            value="$(find-pkg-share rmf_demos)/config/pinklab/cleanerBotA_config.yaml" />
+            value="$(find-pkg-share rmf_turtlebot4_fleet_adapter)/config.yaml" />
     </include>
 
 </launch>
