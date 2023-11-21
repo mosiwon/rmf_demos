@@ -1,0 +1,37 @@
+{
+    "data": {
+        "robot_name": "turtlebot4_lite_1",
+        "map_name": "L1",
+        "position": null,
+        "battery": 0.5400000214576721,
+        "destination_arrival": null,
+        "last_completed_request": null,
+        "replan": false
+    },
+    "success": true,
+    "msg": ""
+}
+
+----
+template
+{
+    "data": {
+        "robot_name": "turtlebot4_standard_1",
+        "map_name": "L1",
+        "position": {
+            "x": 19.180940628051758,
+            "y": -6.38711404800415,
+            "yaw": 3.141502618789673
+        },
+        "battery": 100,
+        "destination_arrival": null,
+        "last_completed_request": null,
+        "replan": false
+    },
+    "success": true,
+    "msg": ""
+}
+
+----
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap /cmd_vel:=/turtlebot4_lite_1/cmd_vel
+
