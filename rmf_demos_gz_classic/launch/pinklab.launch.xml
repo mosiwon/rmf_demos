@@ -5,6 +5,17 @@
     <arg name="use_sim_time" default="true" />
     <arg name="failover_mode" default="false" />
 
+    <!-- Bringup Minibot launch -->
+    <include file="$(find-pkg-share minibot_gazebo)/launch/spawn_minibot.launch.py">
+        <arg name="robot_name" value="minibot_1" />
+        <arg name="robot_prefix" value="minibot_1" />
+        <arg name="is_sim" value="$(var use_sim_time)" />
+        <arg name="x_pose" value="28.1203" />
+        <arg name="y_pose" value="-3.7677" />
+        <arg name="z_pose" value="0.1" />
+        <arg name="yaw" value="0.0" />
+    </include>
+
     <!-- Common launch -->
     <include file="$(find-pkg-share rmf_demos)/pinklab.launch.xml">
         <arg name="use_sim_time" value="$(var use_sim_time)" />
@@ -16,5 +27,4 @@
         <arg name="map_name" value="pinklab" />
         <arg name="gazebo_version" value="$(var gazebo_version)" />
     </include>
-
 </launch>
