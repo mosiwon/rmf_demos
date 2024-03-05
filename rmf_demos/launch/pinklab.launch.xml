@@ -25,6 +25,8 @@
     <!--Free Fleet client-->
     <node name="minibot_free_fleet_client_node" pkg="free_fleet_client_ros2"
         exec="free_fleet_client_ros2" output="both">
+        <remap from="/tf" to="minibot_1/tf"/>
+        <remap from="/tf_static" to="minibot_1/tf_static"/>
         <param name="fleet_name" value="minibot" />
         <param name="robot_name" value="minibot_1" />
         <param name="robot_model" value="minibot" />
@@ -58,6 +60,14 @@
         <param name="rotation" value="0.0" />
         <param name="scale" value="1.0" />
     </node>
+
+    <include file="$(find-pkg-share fleet_adapter_template)/launch/fleet_minibot_adapter.launch.xml">
+        <arg name="use_sim_time" value="$(var use_sim_time)" />
+        <arg name="nav_graph_file"
+            value="$(find-pkg-share rmf_demos_maps)/maps/pinklab/nav_graphs/3.yaml" />
+        <arg name="config_file"
+            value="$(find-pkg-share rmf_demos)/config/pinklab/minibot_config.yaml" />
+    </include> 
 
     <!-- <group>
         <include file="$(find-pkg-share rmf_demos_fleet_adapter)/launch/fleet_adapter.launch.xml">
